@@ -1,7 +1,5 @@
-// LoginScreen.tsx
 import React, { useState } from 'react';
-import { View, TextInput, Button, Alert, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+import { View, TextInput, Alert, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import keycloakConfig from './keycloakConfig';
@@ -18,13 +16,13 @@ type LoginScreenRouteProp = RouteProp<RootStackParamList, 'Login'>;
 
 type Props = {
   navigation: LoginScreenNavigationProp;
-  route: LoginScreenRouteProp;
+  //route: LoginScreenRouteProp;
 };
 
 const LoginScreen: React.FC<Props> = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [remember, setRemember] = useState(false);
+  //const [remember, setRemember] = useState(false);
 
   const handleLogin = async () => {
     try {
@@ -33,7 +31,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
         new URLSearchParams({
           grant_type: 'password',
           client_id: keycloakConfig.clientId,
-          client_secret: 'r0hqM23otB5uhpFxC15nZfNdQGJxEPWV',
+          client_secret: keycloakConfig.clientSecret,
           username,
           password,
         }),
@@ -63,7 +61,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>JtPay</Text>
+        <Text style={styles.title}>Your APP</Text>
         <Text style={styles.subtitle}>Login to your Account.</Text>
         <View style={styles.inputContainer}>
           <TextInput

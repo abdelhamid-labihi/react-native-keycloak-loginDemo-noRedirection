@@ -1,9 +1,6 @@
-// App.tsx
 import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoginScreen from './src/LoginScreen';
 import HomeScreen from './src/HomeScreen';
 import { AuthProvider, AuthContext } from './src/AuthContext';
